@@ -1,0 +1,19 @@
+{
+  "name": "Agendado.pt",
+  "short_name": "Agendado",
+  "description": "Marca serviços de beleza e bem-estar em segundos",
+  "start_url": "/cliente.html",
+  "display": "standalone",
+  "background_color": "#F5F6F3",
+  "theme_color": "#101C30",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "lifestyle"]
+}

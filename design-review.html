@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agendado.pt — Revisão visual</title>
+<style>
+:root{--ink:#17201d;--muted:#686c66;--line:#ddd6c8;--blue:#2a5bd7;--lime:#dafa55;--bg:#f3efe7}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--bg);font-family:Inter,system-ui,sans-serif}
+.shell{display:grid;grid-template-columns:280px 1fr;min-height:100vh}.rail{position:sticky;top:0;height:100vh;padding:24px 18px;background:#17201d;overflow:auto;box-shadow:18px 0 50px rgba(23,32,29,.12)}.brand{display:flex;align-items:center;gap:11px;margin:0 7px 28px;color:#fff;font-weight:900;letter-spacing:-.04em}.mark{display:grid;place-items:center;width:34px;height:34px;color:var(--ink);background:var(--lime);border-radius:11px 11px 4px 11px;box-shadow:0 8px 20px rgba(164,190,44,.18);transform:rotate(-2deg)}.group{margin:24px 8px 9px;color:#84918a;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase}.screen{width:100%;display:flex;align-items:center;gap:10px;padding:11px 12px;color:#bdc7c1;background:transparent;border:0;border-radius:11px;font-size:13px;font-weight:700;text-align:left;cursor:pointer;transition:.18s ease}.screen:hover{color:#fff;background:#26322e;transform:translateX(2px)}.screen.active{color:var(--ink);background:var(--lime);box-shadow:0 10px 22px rgba(164,190,44,.16)}.num{display:grid;place-items:center;width:23px;height:23px;border:1px solid currentColor;border-radius:7px;font-size:9px}.main{min-width:0;padding:22px;background:radial-gradient(circle at 95% 0,rgba(218,250,85,.13),transparent 24rem),var(--bg)}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:16px;padding:0 4px}.toolbar_right{display:flex;align-items:center;gap:14px}.view_modes{display:flex;padding:3px;background:#e4ded3;border-radius:10px}.view_modes button{padding:7px 10px;color:var(--muted);background:transparent;border:0;border-radius:8px;font-size:10px;font-weight:750;cursor:pointer}.view_modes button.active{color:#fff;background:var(--ink)}.eyebrow{color:var(--blue);font-size:10px;font-weight:850;letter-spacing:.14em;text-transform:uppercase}h1{margin:4px 0 0;font-size:28px;letter-spacing:-.045em}.meta{color:var(--muted);font-size:12px}.viewport{height:calc(100vh - 102px);min-height:620px;margin:auto;background:#fffdf8;border:1px solid var(--line);border-radius:20px;box-shadow:0 22px 65px rgba(53,46,34,.12);overflow:hidden;transition:max-width .2s}.viewport.mobile{max-width:390px}.viewport iframe{width:100%;height:100%;border:0;background:#fffdf8}
+@media(max-width:800px){.shell{display:block}.rail{position:static;height:auto;padding:14px;white-space:nowrap;overflow-x:auto}.brand{margin:0 5px 14px}.group{display:none}.screen{display:inline-flex;width:auto;margin-right:5px}.main{padding:12px}.toolbar{align-items:flex-start}.meta{display:none}.viewport{height:calc(100vh - 146px);min-height:560px;border-radius:13px}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="rail">
+    <div class="brand"><span class="mark">A</span>Agendado.pt</div>
+    <div class="group">Público</div>
+    <button class="screen active" data-url="landing.html?v=8"><span class="num">01</span>Apresentação</button>
+    <button class="screen" data-url="index.html?v=8"><span class="num">02</span>Planos</button>
+    <button class="screen" data-url="cartaz.html?n=Studio%20Aurora&amp;preview=design"><span class="num">03</span>Cartaz QR</button>
+    <button class="screen" data-url="privacidade.html?v=8"><span class="num">04</span>Privacidade</button>
+    <button class="screen" data-url="termos.html?v=8"><span class="num">05</span>Termos</button>
+    <div class="group">Acesso</div>
+    <button class="screen" data-url="painel.html?preview=design&amp;page=auth-login"><span class="num">06</span>Login</button>
+    <button class="screen" data-url="painel.html?preview=design&amp;page=auth-registo"><span class="num">07</span>Registo</button>
+    <div class="group">Cliente</div>
+    <button class="screen" data-url="cliente.html?preview=design&amp;page=descobrir"><span class="num">08</span>Descobrir</button>
+    <button class="screen" data-url="cliente.html?preview=design&amp;page=marcacoes"><span class="num">09</span>Marcações</button>
+    <button class="screen" data-url="cliente.html?preview=design&amp;page=perfil_cliente"><span class="num">10</span>Perfil</button>
+    <button class="screen" data-url="cliente.html?preview=design&amp;page=agendar&amp;step=1"><span class="num">11</span>Serviço</button>
+    <button class="screen" data-url="cliente.html?preview=design&amp;page=agendar&amp;step=2"><span class="num">12</span>Profissional</button>
+    <button class="screen" data-url="cliente.html?preview=design&amp;page=agendar&amp;step=3"><span class="num">13</span>Data e hora</button>
+    <button class="screen" data-url="cliente.html?preview=design&amp;page=agendar&amp;step=4"><span class="num">14</span>Confirmação</button>
+    <button class="screen" data-url="cliente.html?preview=design&amp;page=agendar&amp;step=success"><span class="num">15</span>Sucesso</button>
+    <div class="group">Gestão</div>
+    <button class="screen" data-url="painel.html?preview=design&amp;page=dashboard"><span class="num">16</span>Dashboard</button>
+    <button class="screen" data-url="painel.html?preview=design&amp;page=agenda"><span class="num">17</span>Agenda</button>
+    <button class="screen" data-url="painel.html?preview=design&amp;page=agendamentos"><span class="num">18</span>Marcações</button>
+    <button class="screen" data-url="painel.html?preview=design&amp;page=servicos"><span class="num">19</span>Serviços</button>
+    <button class="screen" data-url="painel.html?preview=design&amp;page=mais"><span class="num">20</span>Configurações</button>
+    <button class="screen" data-url="painel.html?preview=design&amp;page=profissionais"><span class="num">21</span>Profissionais</button>
+    <button class="screen" data-url="painel.html?preview=design&amp;page=clientes"><span class="num">22</span>Clientes</button>
+    <button class="screen" data-url="painel.html?preview=design&amp;page=horarios"><span class="num">23</span>Horários</button>
+    <button class="screen" data-url="painel.html?preview=design&amp;page=perfil"><span class="num">24</span>Perfil do negócio</button>
+  </aside>
+  <main class="main">
+    <div class="toolbar"><div><div class="eyebrow">Revisão visual completa</div><h1 id="titulo">Apresentação</h1></div><div class="toolbar_right"><div class="view_modes"><button class="active" data-mode="desktop">Desktop</button><button data-mode="mobile">Telemóvel</button></div><div class="meta">24 ecrãs reais</div></div></div>
+    <div class="viewport" id="viewport"><iframe id="preview" src="landing.html?v=8" title="Pré-visualização da página selecionada"></iframe></div>
+  </main>
+</div>
+<script>
+var frame=document.getElementById('preview'),title=document.getElementById('titulo')
+document.querySelectorAll('.screen').forEach(function(button){button.addEventListener('click',function(){document.querySelectorAll('.screen').forEach(function(item){item.classList.remove('active')});button.classList.add('active');frame.src=button.dataset.url;title.textContent=button.textContent.replace(/^\d+/,'').trim()})})
+document.querySelectorAll('.view_modes button').forEach(function(button){button.addEventListener('click',function(){document.querySelectorAll('.view_modes button').forEach(function(item){item.classList.remove('active')});button.classList.add('active');document.getElementById('viewport').classList.toggle('mobile',button.dataset.mode==='mobile')})})
+</script>
+</body>
+</html>
