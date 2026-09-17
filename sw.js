@@ -1,11 +1,14 @@
-var CACHE = 'agendado-v4-product-system'
+var CACHE = 'agendado-v5-production'
 var ASSETS = [
   '/',
   '/index.html',
   '/landing.html',
+  '/planos.html',
   '/cliente.html',
   '/painel.html',
   '/cartaz.html',
+  '/privacidade.html',
+  '/termos.html',
   '/agendado-product.css',
   '/shared.js',
   '/tenant.js',

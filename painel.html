@@ -957,6 +957,26 @@
                 Informações visíveis pelos clientes
               </div>
             </div>
+            <div
+              class="card_item"
+              onclick="gerir_subscricao()"
+              style="cursor: pointer"
+            >
+              <div class="card_item_header">
+                <div class="card_item_nome">
+                  <svg class="ic" width="1.2em" height="1.2em">
+                    <use href="#ic-chart" />
+                  </svg>
+                  Plano e faturação
+                </div>
+                <svg class="ic" width="1.2em" height="1.2em">
+                  <use href="#ic-chevron-right" />
+                </svg>
+              </div>
+              <div class="card_item_info" id="billing_status">
+                Consulta ou gere a tua subscrição
+              </div>
+            </div>
           </div>
         </div>
 
@@ -1601,42 +1621,48 @@
           erro.style.display = "block";
           return;
         }
-        const { data, error } = await db.auth.signUp({ email, password: pass });
+        const { data, error } = await db.auth.signUp({
+          email,
+          password: pass,
+          options: {
+            emailRedirectTo: window.location.origin + "/painel.html",
+            data: {
+              nome_negocio: nome,
+              telefone: tel,
+              vertical,
+              cor_primaria,
+              cor_secundaria,
+            },
+          },
+        });
         if (error) {
           erro.textContent = error.message;
           erro.style.display = "block";
           return;
         }
-        if (data.user) {
-          // Verificar se já existe barbearia para este user
-          const { data: barb_exist } = await db
-            .from("barbearias")
-            .select("id")
-            .eq("user_id", data.user.id)
-            .maybeSingle();
-          if (!barb_exist) {
-            await db
-              .from("barbearias")
-              .insert({
-                user_id: data.user.id,
-                nome,
-                email,
-                telefone: tel,
-                ativo: true,
-                vertical,
-                cor_primaria,
-                cor_secundaria,
-                onboarding_concluido: false,
-              });
-            try {
-              await db.functions.invoke("welcome-email", {
-                body: { email, nome },
-              });
-            } catch (e) {}
+        if (data.user && data.session) {
+          const { error: negocioError } = await db.rpc("criar_negocio", {
+            p_nome: nome,
+            p_email: email,
+            p_telefone: tel,
+            p_vertical: vertical,
+            p_cor_primaria: cor_primaria,
+            p_cor_secundaria: cor_secundaria,
+          });
+          if (negocioError) {
+            erro.textContent =
+              "A conta foi criada, mas não foi possível preparar o negócio: " +
+              negocioError.message;
+            erro.style.display = "block";
+            return;
           }
-          ok.textContent = "Conta criada! A entrar...";
+          ok.textContent = "Conta criada. A abrir o painel...";
           ok.style.display = "block";
-          setTimeout(() => fazer_login(), 1000);
+          await entrar_app(data.user);
+        } else if (data.user) {
+          ok.textContent =
+            "Conta criada. Confirma o email para entrares no painel.";
+          ok.style.display = "block";
         }
       }
 
@@ -2387,27 +2413,34 @@
           .eq("user_id", user.id)
           .maybeSingle();
         if (!bar) {
-          // Só cria se realmente não existe — evita duplicados
-          const { data: novaBar } = await db
-            .from("barbearias")
-            .insert({
-              user_id: user.id,
-              nome: user.email.split("@")[0],
-              email: user.email,
-              ativo: true,
-              vertical: "barbearia",
-              cor_primaria: AgendadoTenant.DEFAULT_PRIMARY,
-              cor_secundaria: AgendadoTenant.DEFAULT_SECONDARY,
-              onboarding_concluido: false,
-            })
-            .select()
-            .single();
+          const meta = user.user_metadata || {};
+          const { data: novaBar, error: criarError } = await db.rpc(
+            "criar_negocio",
+            {
+              p_nome: meta.nome_negocio || user.email.split("@")[0],
+              p_email: user.email,
+              p_telefone: meta.telefone || null,
+              p_vertical: AgendadoTenant.vertical(meta.vertical),
+              p_cor_primaria: AgendadoTenant.cor(
+                meta.cor_primaria,
+                AgendadoTenant.DEFAULT_PRIMARY,
+              ),
+              p_cor_secundaria: AgendadoTenant.cor(
+                meta.cor_secundaria,
+                AgendadoTenant.DEFAULT_SECONDARY,
+              ),
+            },
+          );
           if (novaBar) {
             barbearia_id = novaBar.id;
             document.getElementById("sidebar_nome").textContent = novaBar.nome;
             aplicar_identidade(novaBar);
           } else {
-            await sair();
+            toast(
+              "Não foi possível preparar o negócio: " +
+                (criarError?.message || "erro desconhecido"),
+              "erro",
+            );
             return;
           }
         } else {
@@ -2422,8 +2455,22 @@
         }
         // Verificar estado da subscrição (trial / plano)
         var { data: estado } = await db.rpc("estado_conta");
+        var billing = document.getElementById("billing_status");
+        if (billing && estado?.ok) {
+          billing.textContent = estado.plano_ativo
+            ? "Subscrição ativa — gerir no Stripe"
+            : estado.dias_restantes +
+              " dia(s) restantes do período gratuito";
+        }
         if (estado && estado.ok && !estado.acesso) {
           mostrar_bloqueio_trial();
+          return;
+        }
+        var planoPendente = localStorage.getItem("agendado_plano_pendente");
+        if (["solo", "pro", "business"].includes(planoPendente)) {
+          localStorage.removeItem("agendado_plano_pendente");
+          window.location.href =
+            "planos.html?plano=" + encodeURIComponent(planoPendente);
           return;
         }
         if (
@@ -2460,7 +2507,23 @@
       }
 
       function ir_subscrever() {
-        window.location.href = "https://agendado.pt/index.html";
+        window.location.href = "planos.html";
+      }
+
+      async function gerir_subscricao() {
+        var { data: estado } = await db.rpc("estado_conta");
+        if (!estado?.plano_ativo) {
+          ir_subscrever();
+          return;
+        }
+        var { data, error } = await db.functions.invoke("billing-portal", {
+          body: {},
+        });
+        if (error || !data?.url) {
+          toast("Não foi possível abrir a faturação.", "erro");
+          return;
+        }
+        window.location.href = data.url;
       }
 
       function tratar_recovery() {
@@ -2491,6 +2554,10 @@
       }
 
       async function init() {
+        var planoPedido = new URLSearchParams(location.search).get("plano");
+        if (["solo", "pro", "business"].includes(planoPedido)) {
+          localStorage.setItem("agendado_plano_pendente", planoPedido);
+        }
         if (modo_preview_design()) {
           var previewPage =
             new URLSearchParams(location.search).get("page") || "dashboard";
@@ -2532,6 +2599,9 @@
           data: { session },
         } = await db.auth.getSession();
         if (session) await entrar_app(session.user);
+        else if (new URLSearchParams(location.search).get("registar") === "1") {
+          trocar_tab("registro");
+        }
         db.auth.onAuthStateChange(async (evento, session) => {
           if (evento === "PASSWORD_RECOVERY") {
             await tratar_recovery();

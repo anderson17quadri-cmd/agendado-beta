@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Agendado.pt — Planos</title>
+    <title>Agendado.pt — Agenda simples para negócios que cuidam</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="agendado-product.css?v=3" />
   </head>
-  <body class="site-planos">
+  <body class="site-marketing">
     <!-- SVG ICONS SPRITE -->
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
       <symbol
@@ -368,143 +368,507 @@
       Sem ligação à internet
     </div>
 
-    <div id="main_page">
-      <div class="header">
-        <a class="logo" href="landing.html"
-          ><span class="brand_symbol">A</span><strong>Agendado</strong
-          ><small>.pt</small></a
-        >
-        <div class="plan_nav">
-          <a href="landing.html">Voltar ao produto</a
-          ><a href="painel.html">Entrar</a>
-        </div>
+    <nav id="nav">
+      <a class="nav_logo" href="index.html"
+        ><span class="brand_symbol">A</span><strong>Agendado</strong
+        ><small>.pt</small></a
+      >
+      <div class="nav_links">
+        <a href="#produto">Produto</a><a href="#como-funciona">Como funciona</a
+        ><a href="#precos">Preços</a><a href="#faq">Dúvidas</a>
       </div>
-
-      <div class="hero">
-        <div class="hero_tag">Preços transparentes</div>
-        <div class="hero_titulo">Escolhe o ritmo certo para o teu negócio.</div>
-        <div class="hero_sub">
-          Todos os planos incluem 15 dias grátis, configuração assistida e a
-          aplicação para clientes.
-        </div>
-        <div class="toggle_wrap">
-          <span class="toggle_label active" id="lbl_mensal">Mensal</span>
-          <div class="toggle_btn" id="toggle" onclick="trocar()"></div>
-          <span class="toggle_label" id="lbl_anual">Anual</span>
-          <span class="desconto">2 meses grátis</span>
-        </div>
+      <div class="nav_actions">
+        <a href="painel.html" class="nav_login">Entrar</a
+        ><a href="painel.html?registar=1" class="nav_btn">Começar grátis</a>
       </div>
+    </nav>
 
-      <div class="planos">
-        <div class="plano">
-          <div class="plano_nome">Solo</div>
-          <div class="plano_desc">Para profissionais autónomos</div>
-          <div class="plano_preco" id="preco_solo">€9,90<span>/mês</span></div>
-          <div class="plano_info" id="info_solo"></div>
-          <ul class="features">
-            <li>1 profissional</li>
-            <li>Agendamentos ilimitados</li>
-            <li>App para clientes</li>
-            <li>Gestão de serviços</li>
-            <li>Suporte via Instagram</li>
-          </ul>
-          <button class="btn_comecar btn_outline" id="btn_solo">
-            Começar grátis
-          </button>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero_bg"></div>
+      <div class="hero_copy">
+        <div class="hero_linha">A agenda para negócios que cuidam</div>
+        <h1 class="hero_h1">A agenda que trabalha enquanto tu cuidas.</h1>
+        <p class="hero_desc">
+          Uma agenda profissional para beleza, bem-estar e serviços pessoais. Os
+          clientes marcam sozinhos e tu manténs
+          <strong>horários, equipa e negócio</strong> sob controlo.
+        </p>
+        <div class="hero_ctas">
+          <a href="painel.html?registar=1" class="cta_main">Experimentar 15 dias grátis</a>
+          <a href="#como-funciona" class="cta_sec">Ver como funciona ↓</a>
         </div>
-
-        <div class="plano popular">
-          <div class="popular_badge">MAIS POPULAR</div>
-          <div class="plano_nome">Pro</div>
-          <div class="plano_desc">Para equipas em crescimento</div>
-          <div class="plano_preco" id="preco_pro">€19,90<span>/mês</span></div>
-          <div class="plano_info" id="info_pro"></div>
-          <ul class="features">
-            <li>Até 5 profissionais</li>
-            <li>Agendamentos ilimitados</li>
-            <li>App para clientes</li>
-            <li>Notificações automáticas</li>
-            <li>Relatórios e estatísticas</li>
-            <li>Suporte prioritário</li>
-          </ul>
-          <button class="btn_comecar btn_gold" id="btn_pro">
-            Começar grátis
-          </button>
-        </div>
-
-        <div class="plano">
-          <div class="plano_nome">Business</div>
-          <div class="plano_desc">Para redes e grandes equipas</div>
-          <div class="plano_preco" id="preco_business">
-            €34,90<span>/mês</span>
+        <div class="hero_prova">
+          <div class="prova_label">Feito para o teu dia a dia</div>
+          <div class="prova_avatares">
+            <div class="avatares">
+              <div class="avatar">
+                <svg class="ic" width="1.2em" height="1.2em">
+                  <use href="#ic-barber" />
+                </svg>
+              </div>
+              <div class="avatar">
+                <svg class="ic" width="1.2em" height="1.2em">
+                  <use href="#ic-scissors" />
+                </svg>
+              </div>
+              <div class="avatar">
+                <svg class="ic" width="1.2em" height="1.2em">
+                  <use href="#ic-user" />
+                </svg>
+              </div>
+              <div class="avatar">
+                <svg class="ic" width="1.2em" height="1.2em">
+                  <use href="#ic-barber" />
+                </svg>
+              </div>
+            </div>
+            <div class="prova_txt">
+              <strong>Barbearias, salões, estética</strong><br />unhas, massagem
+              e tatuagem.
+            </div>
           </div>
-          <div class="plano_info" id="info_business"></div>
-          <ul class="features">
-            <li>Profissionais ilimitados</li>
-            <li>Agendamentos ilimitados</li>
-            <li>Múltiplas localizações</li>
-            <li>Tudo do plano Pro</li>
-            <li>Gestor de conta dedicado</li>
-          </ul>
-          <button class="btn_comecar btn_outline" id="btn_business">
-            Começar grátis
-          </button>
         </div>
       </div>
-      <div class="plan_assurance">
-        <span
-          ><svg class="ic"><use href="#ic-check" /></svg>Sem fidelização</span
-        ><span
-          ><svg class="ic"><use href="#ic-check" /></svg>Clientes
-          ilimitados</span
-        ><span
-          ><svg class="ic"><use href="#ic-check" /></svg>Dados protegidos</span
-        >
+
+      <div class="hero_product reveal-scale">
+        <div class="hero_photo" role="img" aria-label="Profissional atendendo uma cliente num salão moderno">
+          <span><strong>O teu espaço em primeiro plano.</strong><small>A tecnologia trabalha discretamente por trás.</small></span>
+        </div>
+        <div class="product_bar">
+          <span><i></i>Operação de hoje</span><span>Terça, 8 setembro</span>
+        </div>
+        <div class="hero_visual">
+          <div class="stat_cards">
+            <div class="stat_card">
+              <div class="stat_num">8</div>
+              <div class="stat_lbl">marcações hoje</div>
+            </div>
+            <div class="stat_card">
+              <div class="stat_num">€312</div>
+              <div class="stat_lbl">faturado hoje</div>
+            </div>
+          </div>
+          <div class="agenda_preview">
+            <div class="agenda_header">
+              <div class="agenda_titulo">AGENDA DE HOJE</div>
+              <div class="agenda_badge">● AO VIVO</div>
+            </div>
+            <div class="slot">
+              <div class="slot_hora">09:00</div>
+              <div class="slot_bar" style="background: var(--green)"></div>
+              <div class="slot_info">
+                <div class="slot_nome">João Silva</div>
+                <div class="slot_srv">Corte + Barba</div>
+              </div>
+              <div class="slot_valor">€18</div>
+            </div>
+            <div class="slot">
+              <div class="slot_hora">09:30</div>
+              <div class="slot_bar" style="background: var(--gold)"></div>
+              <div class="slot_info">
+                <div class="slot_nome">Miguel Costa</div>
+                <div class="slot_srv">Degrade</div>
+              </div>
+              <div class="slot_valor">€15</div>
+            </div>
+            <div class="slot">
+              <div class="slot_hora">10:00</div>
+              <div class="slot_bar" style="background: var(--green)"></div>
+              <div class="slot_info">
+                <div class="slot_nome">Rui Santos</div>
+                <div class="slot_srv">Corte Clássico</div>
+              </div>
+              <div class="slot_valor">€12</div>
+            </div>
+            <div class="slot">
+              <div class="slot_hora">10:30</div>
+              <div class="slot_bar" style="background: var(--green)"></div>
+              <div class="slot_info">
+                <div class="slot_nome">André Pinto</div>
+                <div class="slot_srv">Corte + Barba</div>
+              </div>
+              <div class="slot_valor">€18</div>
+            </div>
+          </div>
+        </div>
+        <div class="product_footer">
+          <span>Próxima vaga</span><strong>11:30</strong><span>Ocupação</span
+          ><strong>72%</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="product_strip" id="produto">
+      <span>Uma operação mais simples</span>
+      <div>
+        <strong>Agenda</strong><strong>Clientes</strong><strong>Equipa</strong
+        ><strong>Serviços</strong><strong>Disponibilidade</strong>
+      </div>
+    </section>
+
+    <!-- CONTRASTE -->
+    <div class="contraste reveal">
+      <div class="contraste_inner">
+        <div class="sec_eyebrow">Antes vs Depois</div>
+        <h2 class="sec_h2">Reconheces alguma destas situações?</h2>
+        <div class="contraste_grid">
+          <div class="contraste_lado antes">
+            <div class="contraste_label">Antes</div>
+            <div class="contraste_item">
+              <span
+                ><svg class="ic" width="1.1em" height="1.1em">
+                  <use href="#ic-x" /></svg></span
+              >WhatsApp a toda a hora
+            </div>
+            <div class="contraste_item">
+              <span
+                ><svg class="ic" width="1.1em" height="1.1em">
+                  <use href="#ic-clipboard" /></svg></span
+              >Agenda em papel ou na cabeça
+            </div>
+            <div class="contraste_item">
+              <span
+                ><svg class="ic" width="1.1em" height="1.1em">
+                  <use href="#ic-x" /></svg></span
+              >Clientes que não aparecem
+            </div>
+            <div class="contraste_item">
+              <span
+                ><svg class="ic" width="1.1em" height="1.1em">
+                  <use href="#ic-clock" /></svg></span
+              >Mensagens às 23h
+            </div>
+            <div class="contraste_item">
+              <span
+                ><svg class="ic" width="1.1em" height="1.1em">
+                  <use href="#ic-chart" /></svg></span
+              >Sem controlo da faturação
+            </div>
+          </div>
+          <div class="contraste_lado depois">
+            <div class="contraste_label">Depois</div>
+            <div class="contraste_item">
+              <span
+                ><svg class="ic" width="1.1em" height="1.1em">
+                  <use href="#ic-check" /></svg></span
+              >Clientes marcam sozinhos
+            </div>
+            <div class="contraste_item">
+              <span
+                ><svg class="ic" width="1.1em" height="1.1em">
+                  <use href="#ic-check" /></svg></span
+              >Agenda digital organizada
+            </div>
+            <div class="contraste_item">
+              <span
+                ><svg class="ic" width="1.1em" height="1.1em">
+                  <use href="#ic-check" /></svg></span
+              >Confirmações organizadas
+            </div>
+            <div class="contraste_item">
+              <span
+                ><svg class="ic" width="1.1em" height="1.1em">
+                  <use href="#ic-check" /></svg></span
+              >Zero mensagens fora de horas
+            </div>
+            <div class="contraste_item">
+              <span
+                ><svg class="ic" width="1.1em" height="1.1em">
+                  <use href="#ic-check" /></svg></span
+              >Dashboard com tudo
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- CHECKOUT -->
-    <div id="checkout_page">
-      <div class="checkout_back" onclick="voltar()">
+    <!-- FEATURES -->
+    <section class="sec" id="como-funciona">
+      <div class="feature_intro">
+        <div class="sec_eyebrow">Funcionalidades</div>
+        <h2 class="sec_h2">Do primeiro pedido ao último atendimento.</h2>
+        <p class="sec_sub">
+          Tudo organizado numa rotina visual simples, sem perder tempo entre
+          mensagens e folhas de cálculo.
+        </p>
+      </div>
+      <div class="features_lista reveal-left">
+        <div class="feat">
+          <div class="feat_num">01</div>
+          <div>
+            <div class="feat_titulo">Agenda online 24 horas</div>
+            <div class="feat_desc">
+              Os teus clientes marcam a qualquer hora, mesmo quando estás a
+              dormir ou a cortar cabelo. A agenda actualiza em tempo real.
+            </div>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat_num">02</div>
+          <div>
+            <div class="feat_titulo">App para os teus clientes</div>
+            <div class="feat_desc">
+              Cada cliente tem acesso a uma app onde vê os teus horários
+              disponíveis, escolhe o serviço e confirma a marcação em segundos.
+            </div>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat_num">03</div>
+          <div>
+            <div class="feat_titulo">Confirmação clara da marcação</div>
+            <div class="feat_desc">
+              O cliente recebe um resumo imediato no ecrã e encontra as suas
+              marcações na conta, sem depender de mensagens dispersas.
+            </div>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat_num">04</div>
+          <div>
+            <div class="feat_titulo">Gestão de profissionais</div>
+            <div class="feat_desc">
+              Tens uma equipa? Cada profissional tem a sua própria agenda. Os
+              clientes escolhem com quem querem ser atendidos.
+            </div>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat_num">05</div>
+          <div>
+            <div class="feat_titulo">Dashboard de negócio</div>
+            <div class="feat_desc">
+              Vê quantos clientes tens hoje, esta semana, este mês. Controla os
+              teus serviços, preços e horários de funcionamento.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NUMEROS -->
+    <section class="nums reveal-scale">
+      <div class="nums_grid">
+        <div class="num_item">
+          <div class="num_val">6</div>
+          <div class="num_lbl">tipos de negócio suportados</div>
+        </div>
+        <div class="num_item">
+          <div class="num_val">15</div>
+          <div class="num_lbl">dias para experimentar gratuitamente</div>
+        </div>
+        <div class="num_item">
+          <div class="num_val">24/7</div>
+          <div class="num_lbl">marcações automáticas</div>
+        </div>
+        <div class="num_item">
+          <div class="num_val">€0</div>
+          <div class="num_lbl">para os teus clientes</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAMA PILOTO -->
+    <section class="sec reveal">
+      <div class="sec_eyebrow">Programa piloto</div>
+      <h2 class="sec_h2">Acompanhamento próximo desde o primeiro dia</h2>
+      <div class="dep_grande">
+        <div class="dep_estrelas">VAGAS INICIAIS</div>
+        <div class="dep_texto">
+          Estamos a abrir o Agendado.pt a um grupo reduzido de negócios. Cada
+          participante recebe ajuda para configurar serviços, equipa, horários,
+          identidade visual, link e QR Code.
+        </div>
+        <div class="dep_autor">
+          <div class="dep_foto">
+            <svg class="ic" width="1.2em" height="1.2em">
+              <use href="#ic-barber" />
+            </svg>
+          </div>
+          <div>
+            <div class="dep_nome">Equipa Agendado.pt</div>
+            <div class="dep_cargo">Configuração assistida · Portugal</div>
+          </div>
+        </div>
+      </div>
+      <div class="deps_pequenos">
+        <div class="dep_small">
+          <div class="dep_small_stars">PASSO 1</div>
+          <div class="dep_small_txt">
+            Configuramos o teu espaço e testamos uma marcação contigo.
+          </div>
+          <div class="dep_small_autor">Entrada acompanhada</div>
+          <div class="dep_small_local">Sem conhecimentos técnicos</div>
+        </div>
+        <div class="dep_small">
+          <div class="dep_small_stars">PASSO 2</div>
+          <div class="dep_small_txt">
+            Recolhemos feedback real antes de ampliar o lançamento.
+          </div>
+          <div class="dep_small_autor">Evolução contínua</div>
+          <div class="dep_small_local">Produto construído com os negócios</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRECOS -->
+    <section class="precos reveal" id="precos">
+      <div class="sec_eyebrow">Preços</div>
+      <h2 class="sec_h2" style="text-align: center">Investe no teu negócio</h2>
+      <p class="sec_sub" style="text-align: center; margin-bottom: 28px">
+        Um investimento simples, sem taxas escondidas.
+      </p>
+      <div class="toggle_wrap">
+        <span class="toggle_lbl on" id="lm">Mensal</span>
+        <div class="toggle_sw" id="tsw" onclick="trocar()"></div>
+        <span class="toggle_lbl" id="la">Anual</span>
+        <span class="badge_desc">2 meses grátis</span>
+      </div>
+      <div class="p_card">
+        <div class="p_nome">Solo</div>
+        <div class="p_desc">Para o profissional autónomo</div>
+        <div class="p_preco" id="pp_solo">
+          <sup>€</sup>9<span>,90/mês</span>
+        </div>
+        <div class="p_save" id="ps_solo"></div>
+        <ul class="p_feats">
+          <li>1 profissional</li>
+          <li>Agendamentos ilimitados</li>
+          <li>App para clientes</li>
+          <li>Gestão de serviços e preços</li>
+          <li>Suporte via Instagram</li>
+        </ul>
+        <a href="painel.html?registar=1&amp;plano=solo" class="p_btn p_btn_out">Começar grátis →</a>
+      </div>
+      <div class="p_card star">
+        <div class="p_star_tag">ESCOLHA MAIS POPULAR</div>
+        <div class="p_nome">Pro</div>
+        <div class="p_desc">Para equipas em crescimento</div>
+        <div class="p_preco" id="pp_pro">
+          <sup>€</sup>19<span>,90/mês</span>
+        </div>
+        <div class="p_save" id="ps_pro"></div>
+        <ul class="p_feats">
+          <li>Até 5 profissionais</li>
+          <li>Agendamentos ilimitados</li>
+          <li>App para clientes</li>
+          <li>Confirmação manual ou automática</li>
+          <li>Visão diária da operação</li>
+          <li>Suporte prioritário</li>
+        </ul>
+        <a href="painel.html?registar=1&amp;plano=pro" class="p_btn p_btn_gold">Começar grátis →</a>
+      </div>
+      <div class="p_card">
+        <div class="p_nome">Business</div>
+        <div class="p_desc">Para redes e grandes equipas</div>
+        <div class="p_preco" id="pp_bus">
+          <sup>€</sup>34<span>,90/mês</span>
+        </div>
+        <div class="p_save" id="ps_bus"></div>
+        <ul class="p_feats">
+          <li>Profissionais ilimitados</li>
+          <li>Tudo do plano Pro</li>
+          <li>Identidade visual personalizada</li>
+          <li>Configuração assistida</li>
+          <li>Suporte dedicado</li>
+        </ul>
+        <a href="painel.html?registar=1&amp;plano=business" class="p_btn p_btn_out">Começar grátis →</a>
+      </div>
+    </section>
+
+    <!-- GARANTIA -->
+    <div class="garantia reveal">
+      <div class="g_ico">
         <svg class="ic" width="1.2em" height="1.2em">
-          <use href="#ic-arrow-left" />
-        </svg>
-        Voltar
-      </div>
-      <div class="checkout_titulo" id="co_titulo">Plano Pro</div>
-      <div class="checkout_sub">15 dias grátis · Cancela quando quiseres</div>
-      <div class="resumo">
-        <div class="resumo_linha">
-          <span class="resumo_label">Plano</span><span id="co_plano">—</span>
-        </div>
-        <div class="resumo_linha">
-          <span class="resumo_label">Hoje</span
-          ><span style="color: #2d9e6b">€0,00 (trial)</span>
-        </div>
-        <div class="resumo_linha">
-          <span class="resumo_label">Após 15 dias</span
-          ><span id="co_valor">—</span>
-        </div>
-      </div>
-      <div class="field">
-        <label>Nome completo</label
-        ><input type="text" id="co_nome" placeholder="João Silva" />
-      </div>
-      <div class="field">
-        <label>Email</label
-        ><input type="email" id="co_email" placeholder="joao@email.com" />
-      </div>
-      <div class="msg_erro" id="co_erro"></div>
-      <button class="btn_pagar" id="co_btn" onclick="pagar()">
-        <svg class="ic" width="1.1em" height="1.1em">
           <use href="#ic-check" />
         </svg>
-        Continuar para pagamento
-      </button>
-      <div class="seguro">Pagamento seguro via Stripe · SSL 256-bit</div>
+      </div>
+      <div class="g_titulo">15 dias sem qualquer risco</div>
+      <div class="g_txt">
+        Experimenta o Agendado.pt durante 15 dias completamente grátis. Sem
+        cartão de crédito. Sem compromissos. Se não ficares satisfeito, cancelas
+        com um clique.
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <section class="faq reveal" id="faq">
+      <div class="sec_eyebrow">Dúvidas</div>
+      <h2 class="sec_h2" style="margin-bottom: 28px">Perguntas frequentes</h2>
+      <div class="faq_item" onclick="this.classList.toggle('open')">
+        <div class="faq_q">
+          Os meus clientes têm de pagar alguma coisa?
+          <span class="faq_ico">+</span>
+        </div>
+        <div class="faq_a">
+          Não. A app para clientes é sempre 100% gratuita. Só o negócio paga a
+          subscrição mensal.
+        </div>
+      </div>
+      <div class="faq_item" onclick="this.classList.toggle('open')">
+        <div class="faq_q">
+          Posso cancelar quando quiser? <span class="faq_ico">+</span>
+        </div>
+        <div class="faq_a">
+          Sim, cancelas a qualquer momento sem penalizações. No plano mensal, o
+          acesso termina no fim do mês pago.
+        </div>
+      </div>
+      <div class="faq_item" onclick="this.classList.toggle('open')">
+        <div class="faq_q">
+          Funciona em iPhone e Android? <span class="faq_ico">+</span>
+        </div>
+        <div class="faq_a">
+          Sim. Tanto o painel de gestão como a app dos clientes funcionam em
+          qualquer dispositivo — telemóvel, tablet ou computador.
+        </div>
+      </div>
+      <div class="faq_item" onclick="this.classList.toggle('open')">
+        <div class="faq_q">
+          Preciso de saber programação para usar? <span class="faq_ico">+</span>
+        </div>
+        <div class="faq_a">
+          Não. O Agendado.pt foi desenhado para ser simples. Configuras tudo em
+          menos de 10 minutos.
+        </div>
+      </div>
+      <div class="faq_item" onclick="this.classList.toggle('open')">
+        <div class="faq_q">
+          E se tiver dúvidas depois de contratar? <span class="faq_ico">+</span>
+        </div>
+        <div class="faq_a">
+          Tens suporte via Instagram. Nos planos Pro e Business o suporte é
+          prioritário.
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta_final reveal">
+      <div class="cta_eyebrow">Começa hoje</div>
+      <h2 class="cta_h2">O teu negócio<br />merece mais.</h2>
+      <p class="cta_sub">
+        Deixa o papel e as mensagens para trás. Dá aos teus clientes uma forma
+        simples de marcar.
+      </p>
+      <a href="painel.html?registar=1" class="cta_main_btn"
+        >Experimentar grátis durante 15 dias</a
+      >
+      <div class="cta_nota">
+        Sem cartão de crédito · Cancela quando quiseres · Feito em Portugal
+      </div>
+    </section>
+
+    <footer>
+      <div class="f_logo">Agenda<span>do</span>.pt</div>
+      <div class="f_txt">
+        © 2026 Agendado.pt · Todos os direitos reservados<br />Produto criado em
+        Portugal
+      </div>
       <div
         style="
-          margin-top: 24px;
+          margin-top: 12px;
           display: flex;
           gap: 16px;
           justify-content: center;
@@ -521,196 +885,64 @@
           >Termos de Serviço</a
         >
       </div>
-    </div>
-
-    <!-- SUCESSO -->
-    <div id="sucesso_page">
-      <div class="sucesso-icon">
-        <svg class="ic" width="1.2em" height="1.2em">
-          <use href="#ic-check" />
-        </svg>
-      </div>
-      <div style="font-size: 24px; font-weight: 800; margin-bottom: 8px">
-        Bem-vindo!
-      </div>
-      <div style="color: #888; margin-bottom: 32px">
-        A tua subscrição está ativa.
-      </div>
-      <a
-        href="painel.html"
-        style="
-          display: block;
-          background: var(--brand);
-          color: #fff;
-          padding: 15px;
-          border-radius: 9px;
-          font-weight: 800;
-          text-decoration: none;
-          max-width: 280px;
-          margin: 0 auto;
-        "
-        >Ir para o painel →</a
-      >
-    </div>
+    </footer>
 
     <script src="config.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.3/dist/umd/supabase.min.js"></script>
     <script>
-      const EDGE = SUPA_URL + "/functions/v1/quick-handler";
+      // Nav scroll
+      window.addEventListener("scroll", () => {
+        var nav = document.getElementById("nav");
+        nav.classList.toggle("scrolled", window.scrollY > 50);
+      });
 
-      const PLANOS = {
-        solo: {
-          nome: "Solo",
-          mensal: 9.9,
-          anual: 79,
-          txt_m: "€9,90/mês",
-          txt_a: "€79/ano",
+      // Reveal on scroll
+      var obs = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) e.target.classList.add("visible");
+          });
         },
-        pro: {
-          nome: "Pro",
-          mensal: 19.9,
-          anual: 159,
-          txt_m: "€19,90/mês",
-          txt_a: "€159/ano",
-        },
-        business: {
-          nome: "Business",
-          mensal: 34.9,
-          anual: 279,
-          txt_m: "€34,90/mês",
-          txt_a: "€279/ano",
-        },
-      };
+        { threshold: 0.1 },
+      );
+      document
+        .querySelectorAll(".reveal,.reveal-left,.reveal-right,.reveal-scale")
+        .forEach(function (el) {
+          obs.observe(el);
+        });
 
+      // Parallax hero
+      window.addEventListener("scroll", function () {
+        var bg = document.querySelector(".hero_bg");
+        if (bg)
+          bg.style.transform = "translateY(" + window.scrollY * 0.3 + "px)";
+      });
+
+      // Toggle precos
       let modo = "mensal";
-      let plano_atual = null;
-
       function trocar() {
         modo = modo === "mensal" ? "anual" : "mensal";
-        document
-          .getElementById("toggle")
-          .classList.toggle("anual", modo === "anual");
-        document
-          .getElementById("lbl_mensal")
-          .classList.toggle("active", modo === "mensal");
-        document
-          .getElementById("lbl_anual")
-          .classList.toggle("active", modo === "anual");
-        atualizar();
-      }
-
-      function atualizar() {
-        const anual = modo === "anual";
-        document.getElementById("preco_solo").innerHTML = anual
-          ? "€79<span>/ano</span>"
-          : "€9,90<span>/mês</span>";
-        document.getElementById("preco_pro").innerHTML = anual
-          ? "€159<span>/ano</span>"
-          : "€19,90<span>/mês</span>";
-        document.getElementById("preco_business").innerHTML = anual
-          ? "€279<span>/ano</span>"
-          : "€34,90<span>/mês</span>";
-        document.getElementById("info_solo").textContent = anual
+        const a = modo === "anual";
+        document.getElementById("tsw").classList.toggle("anual", a);
+        document.getElementById("lm").classList.toggle("on", !a);
+        document.getElementById("la").classList.toggle("on", a);
+        document.getElementById("pp_solo").innerHTML = a
+          ? "<sup>€</sup>79<span>/ano</span>"
+          : "<sup>€</sup>9<span>,90/mês</span>";
+        document.getElementById("pp_pro").innerHTML = a
+          ? "<sup>€</sup>159<span>/ano</span>"
+          : "<sup>€</sup>19<span>,90/mês</span>";
+        document.getElementById("pp_bus").innerHTML = a
+          ? "<sup>€</sup>279<span>/ano</span>"
+          : "<sup>€</sup>34<span>,90/mês</span>";
+        document.getElementById("ps_solo").textContent = a
           ? "Poupa €39,80/ano"
           : "";
-        document.getElementById("info_pro").textContent = anual
+        document.getElementById("ps_pro").textContent = a
           ? "Poupa €79,80/ano"
           : "";
-        document.getElementById("info_business").textContent = anual
+        document.getElementById("ps_bus").textContent = a
           ? "Poupa €139,80/ano"
           : "";
-      }
-
-      function abrir(plano) {
-        plano_atual = plano;
-        const p = PLANOS[plano];
-        const anual = modo === "anual";
-        document.getElementById("co_titulo").textContent = "Plano " + p.nome;
-        document.getElementById("co_plano").textContent =
-          p.nome + (anual ? " Anual" : " Mensal");
-        document.getElementById("co_valor").textContent = anual
-          ? p.txt_a
-          : p.txt_m;
-        document.getElementById("main_page").style.display = "none";
-        document.getElementById("checkout_page").style.display = "block";
-        window.scrollTo(0, 0);
-      }
-
-      function voltar() {
-        document.getElementById("checkout_page").style.display = "none";
-        document.getElementById("main_page").style.display = "block";
-        window.scrollTo(0, 0);
-      }
-
-      async function pagar() {
-        const nome = document.getElementById("co_nome").value.trim();
-        const email = document.getElementById("co_email").value.trim();
-        const erro = document.getElementById("co_erro");
-        const btn = document.getElementById("co_btn");
-        erro.style.display = "none";
-
-        if (!nome || !email) {
-          erro.textContent = "Preenche o nome e email.";
-          erro.style.display = "block";
-          return;
-        }
-
-        btn.disabled = true;
-        btn.innerHTML = '<span class="spinner"></span> A redirecionar...';
-
-        try {
-          const res = await fetch(EDGE, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              apikey: SUPA_KEY,
-            },
-            body: JSON.stringify({
-              plano: plano_atual,
-              periodo: modo,
-              email,
-              nome,
-            }),
-          });
-          const texto = await res.text();
-          let data;
-          try {
-            data = JSON.parse(texto);
-          } catch (e) {
-            throw new Error("Resposta: " + texto.substring(0, 200));
-          }
-          if (!data || !data.url)
-            throw new Error("Sem URL na resposta: " + texto.substring(0, 200));
-          window.location.href = data.url;
-        } catch (e) {
-          erro.textContent = "Erro: " + e.message;
-          erro.style.display = "block";
-          btn.disabled = false;
-          btn.innerHTML =
-            '<svg class="ic" width="1.1em" height="1.1em"><use href="#ic-check"/></svg> Continuar para pagamento';
-        }
-      }
-
-      // Ligar botões
-      document
-        .getElementById("btn_solo")
-        .addEventListener("click", function () {
-          abrir("solo");
-        });
-      document.getElementById("btn_pro").addEventListener("click", function () {
-        abrir("pro");
-      });
-      document
-        .getElementById("btn_business")
-        .addEventListener("click", function () {
-          abrir("business");
-        });
-
-      // Sucesso
-      if (new URLSearchParams(window.location.search).get("sucesso") === "1") {
-        document.getElementById("main_page").style.display = "none";
-        document.getElementById("sucesso_page").style.display = "block";
-        if (typeof confetti === "function") setTimeout(confetti, 300);
       }
     </script>
     <script>
